@@ -1,1 +1,1 @@
-# Variable definitions
+# Variable declarations
