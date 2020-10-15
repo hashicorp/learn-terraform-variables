@@ -121,7 +121,7 @@ module "ec2_instances" {
   }
 }
 
-resource "aws_db_subnet_group" "default" {
+resource "aws_db_subnet_group" "private" {
   name       = "private"
 
   subnet_ids = module.vpc.private_subnets
@@ -134,7 +134,7 @@ resource "aws_db_instance" "database" {
   username          = "admin"
   password          = "insecurepassword"
 
-  db_subnet_group_name = "private"
+  db_subnet_group_name = aws_db_subnet_group.private.name
 
   skip_final_snapshot = true
 
