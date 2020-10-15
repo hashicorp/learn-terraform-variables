@@ -121,12 +121,20 @@ module "ec2_instances" {
   }
 }
 
+resource "aws_db_subnet_group" "default" {
+  name       = "private"
+
+  subnet_ids = module.vpc.private_subnets
+}
+
 resource "aws_db_instance" "database" {
   allocated_storage = 5
   engine            = "mysql"
   instance_class    = "db.t2.micro"
   username          = "admin"
   password          = "insecurepassword"
+
+  db_subnet_group_name = "private"
 
   skip_final_snapshot = true
 
