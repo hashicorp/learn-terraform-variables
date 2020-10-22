@@ -122,7 +122,7 @@ module "ec2_instances" {
 }
 
 resource "aws_db_subnet_group" "private" {
-  name       = "private"
+  name = "private"
 
   subnet_ids = module.vpc.private_subnets
 }
