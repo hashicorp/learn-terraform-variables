@@ -120,26 +120,3 @@ module "ec2_instances" {
     environment = "dev"
   }
 }
-
-resource "aws_db_subnet_group" "private" {
-  name = "private"
-
-  subnet_ids = module.vpc.private_subnets
-}
-
-resource "aws_db_instance" "database" {
-  allocated_storage = 5
-  engine            = "mysql"
-  instance_class    = "db.t2.micro"
-  username          = "admin"
-  password          = "insecurepassword"
-
-  db_subnet_group_name = aws_db_subnet_group.private.name
-
-  skip_final_snapshot = true
-
-  tags = {
-    project     = "project-alpha",
-    environment = "dev"
-  }
-}
