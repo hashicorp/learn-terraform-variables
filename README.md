@@ -1,6 +1,9 @@
 # Learn Terraform variables
 
-Terraform variables allow you to parameterize your configuration with values
-that can be defined by the user when they apply Terraform configuration.
-Variables allow you to re-use and customize your configuration by providing a
-consistent interface to change how a given configuration behaves.
+You can use input variables to customize your Terraform configuration with
+values that can be assigned by end users of your configuration. Input variables
+allow users to re-use and customize configuration by providing a consistent
+interface to change how a given configuration behaves.
+
+Follow along with this [tutorial on HashiCorp
+Learn](https://learn.hashicorp.com/tutorials/terraform/variables?in=terraform/configuration-language).
