@@ -7,7 +7,6 @@ terraform {
 }
 
 provider "aws" {
-  version = "2.69.0"
   region  = "us-west-2"
 }
 
@@ -17,7 +16,7 @@ data "aws_availability_zones" "available" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "2.44.0"
+  version = "2.64.0"
 
   cidr = "10.0.0.0/16"
 
@@ -36,7 +35,7 @@ module "vpc" {
 
 module "app_security_group" {
   source  = "terraform-aws-modules/security-group/aws//modules/web"
-  version = "3.12.0"
+  version = "3.17.0"
 
   name        = "web-sg-project-alpha-dev"
   description = "Security group for web-servers with HTTP ports open within VPC"
@@ -52,7 +51,7 @@ module "app_security_group" {
 
 module "lb_security_group" {
   source  = "terraform-aws-modules/security-group/aws//modules/web"
-  version = "3.12.0"
+  version = "3.17.0"
 
   name        = "lb-sg-project-alpha-dev"
   description = "Security group for load balancer with HTTP ports open within VPC"
