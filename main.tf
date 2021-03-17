@@ -19,6 +19,8 @@ module "vpc" {
   version = "2.64.0"
 
   cidr = "10.0.0.0/16"
+  
+  name = "terraform"
 
   azs             = data.aws_availability_zones.available.names
   private_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
