@@ -109,6 +109,8 @@ module "elb_http" {
 module "ec2_instances" {
   source = "./modules/aws-instance"
 
+  depends_on = [module.vpc]
+
   instance_count     = 2
   instance_type      = "t2.micro"
   subnet_ids         = module.vpc.private_subnets[*]
